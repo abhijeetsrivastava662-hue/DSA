@@ -8,7 +8,7 @@
 8        int left=(n1+n2+1)/2;
 9        int n=n1+n2;
 10        while(low<=high){
-11            int mid1 = (low+high)/2;
+11            int mid1 = low+(high-low)/2;
 12            int mid2 = left - mid1;
 13            int l1=INT_MIN, l2=INT_MIN;
 14            int r1=INT_MAX, r2=INT_MAX;
