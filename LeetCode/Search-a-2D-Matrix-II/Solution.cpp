@@ -18,6 +18,6 @@
 18                colIndex--;
 19            }
 20        }
-21    return 0;    
+21        return 0;    
 22    }
 23};
