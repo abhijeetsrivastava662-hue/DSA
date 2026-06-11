@@ -1,0 +1,38 @@
+1class Solution {
+2public:
+3    void solve(string s,int open,int close,vector<string>& ans){
+4        if(open==0 && close==0){
+5            ans.push_back(s);
+6            return ;
+7        }
+8        if(open==close){
+9            string s1=s;
+10            s1.push_back('(');
+11            solve(s1,open-1,close,ans);
+12        }else if(open==0){
+13            string s1=s;
+14            s1.push_back(')');
+15            solve(s1,open,close-1,ans);
+16        }else if(close==0){
+17            string s1=s;
+18            s1.push_back('(');
+19            solve(s1,open-1,close,ans);
+20        }else{
+21            string s1=s;
+22            string s2=s;
+23            s1.push_back('(');
+24            s2.push_back(')');
+25            solve(s1,open-1,close,ans);
+26            solve(s2,open,close-1,ans);
+27        }
+28    }
+29    vector<string> generateParenthesis(int n) {
+30        int open=n;
+31        int close=n;
+32        string s="";
+33        vector<string> ans;
+34        solve("", n, n, ans);
+35
+36        return ans;
+37        }
+38};
