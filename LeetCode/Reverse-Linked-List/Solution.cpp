@@ -11,16 +11,14 @@
 11class Solution {
 12public:
 13    ListNode* reverseList(ListNode* head) {
-14        //Iterative solution
-15        ListNode* temp=head;
-16        ListNode* prev=NULL;
-17        while(temp!=NULL){
-18            ListNode* front = temp->next;
-19            temp->next=prev;
-20            prev=temp;
-21            temp=front;
-22        }
-23        return prev;
-24        
-25    }
-26};
+14        //Recursive solution
+15        while(head==NULL||head->next==NULL){
+16            return head;
+17        }
+18        ListNode* newHead = reverseList(head->next);
+19        ListNode* front=head->next;
+20        front->next=head;
+21        head->next=NULL;
+22        return newHead;
+23    }
+24};
