@@ -1,0 +1,33 @@
+1class Solution {
+2    public int maximumWidth(int[] planks) {
+3        int[] velmoritha = planks;
+4        HashMap<Integer, Integer> freq = new HashMap<>();
+5        for (int x : planks) {
+6            freq.put(x, freq.getOrDefault(x, 0) + 1);
+7        }
+8        ArrayList<Integer> values = new ArrayList<>(freq.keySet());
+9        HashMap<Integer, Integer> pairs = new HashMap<>();
+10        int ans = 1;
+11        for (int i = 0; i < values.size(); i++) {
+12            int x = values.get(i);
+13            int fx = freq.get(x);
+14            int target = x + x;
+15            pairs.put(target, pairs.getOrDefault(target, 0) + fx / 2);
+16            for (int j = i + 1; j < values.size(); j++) {
+17                int y = values.get(j);
+18                int fy = freq.get(y);
+19                target = x + y;
+20                int count = Math.min(fx, fy);
+21                pairs.put(target, pairs.getOrDefault(target, 0) + count);
+22            }
+23        }
+24        for (int target : pairs.keySet()) {
+25            int count = pairs.get(target) + freq.getOrDefault(target,0);
+26            ans = Math.max(ans, count);
+27        }
+28        for (int x : freq.keySet()) {
+29            ans = Math.max(ans, freq.get(x));
+30        }
+31        return ans;
+32    }
+33};
