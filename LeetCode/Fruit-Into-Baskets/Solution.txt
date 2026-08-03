@@ -1,0 +1,20 @@
+1class Solution(object):
+2    def totalFruit(self, fruits):
+3        left=0
+4        right=0
+5        max_len=0
+6        count=defaultdict(int)
+7
+8        for right in range(len(fruits)):
+9            count[fruits[right]]+=1
+10
+11            while len(count)>2:
+12                count[fruits[left]] -= 1
+13                if count[fruits[left]]==0:
+14                    del count[fruits[left]]
+15                left+=1
+16            max_len=max(max_len,right-left+1)
+17        return max_len    
+18
+19
+20        
