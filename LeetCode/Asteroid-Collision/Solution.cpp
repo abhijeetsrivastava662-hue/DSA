@@ -8,7 +8,7 @@
 8            while(!lst.empty() && lst.back()>0 && abs(aster[i])>lst.back()){
 9                lst.pop_back();
 10            }
-11            if(!lst.empty() && abs(aster[i])==lst.back()){
+11            if(!lst.empty()&&  lst.back()>0 && abs(aster[i])==lst.back()){
 12                lst.pop_back();
 13            }else if(lst.empty() || lst.back()<0){
 14                lst.push_back(aster[i]);
