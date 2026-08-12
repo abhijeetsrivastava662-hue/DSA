@@ -1,0 +1,1 @@
+Input: ransomNote = "abcde"　magazine = "aabbcde"
