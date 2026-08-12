@@ -1,0 +1,1 @@
+right total = whole total - left total - pivot number
