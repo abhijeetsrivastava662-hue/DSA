@@ -14,10 +14,7 @@
 14                neg+=2;
 15            }
 16        }
-17        for(int i=0;i<n;i++){
-18            nums[i]=temp[i];
-19        }
-20        return nums;
-21        
-22    }
-23};
+17        return temp;
+18        
+19    }
+20};
