@@ -2,14 +2,13 @@
 2public:
 3    int removeDuplicates(vector<int>& nums) {
 4        int i=0;
-5        for(int j=1;j<nums.size();j++){
-6            if(nums[i]!=nums[j]){
-7                nums[i+1]=nums[j];
-8                i++;
-9            }
-10
+5        int n=nums.size();
+6        for(int j=1;j<n;j++){
+7            if(nums[j]!=nums[i]){
+8                nums[i+1]=nums[j];
+9                i++;
+10            }
 11        }
 12        return i+1;
-13        
-14    }
-15};
+13    }
+14};
