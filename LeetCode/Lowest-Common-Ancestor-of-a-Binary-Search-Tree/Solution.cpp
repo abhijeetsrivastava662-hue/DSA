@@ -11,17 +11,15 @@
 11class Solution {
 12public:
 13    TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
-14        if(root==NULL||root==p||root==q){
-15            return root;
+14        if(root==NULL){
+15            return NULL;
 16        }
-17        TreeNode* left= lowestCommonAncestor(root->left,p,q);
-18        TreeNode* right= lowestCommonAncestor(root->right,p,q);
-19
-20        if(left==NULL) return right;
-21        else if(right==NULL) return left;
-22        else{//means p and q is find
-23            return root;
-24        }
-25
-26    }
-27};
+17        if(root->val<p->val && root->val<q->val){
+18            return lowestCommonAncestor(root->right,p,q);
+19        } else if(root->val>p->val && root->val>q->val){
+20            return lowestCommonAncestor(root->left,p,q);
+21        }
+22        else
+23        return root;
+24    }
+25};
