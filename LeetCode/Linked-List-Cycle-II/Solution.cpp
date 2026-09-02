@@ -11,10 +11,10 @@
 11    ListNode *detectCycle(ListNode *head) {
 12        ListNode* slow=head;
 13        ListNode* fast=head;
-14        while(fast!=NULL&&fast->next!=NULL){
+14        while(fast!=NULL &&fast->next!=NULL){
 15            slow=slow->next;
 16            fast=fast->next->next;
-17            if(slow==fast) {
+17            if(fast==slow){
 18                slow=head;
 19                while(slow!=fast){
 20                    slow=slow->next;
@@ -24,5 +24,6 @@
 24            }
 25        }
 26        return NULL;
-27    }
-28};
+27        
+28    }
+29};
