@@ -1,0 +1,37 @@
+1class Solution {
+2public:
+3    int countSpecialIntegers(vector<int>& nums) {
+4        unordered_set<int> st;
+5        int n=nums.size();
+6        int ans=0;
+7
+8        for(int i=0;i<n;i++){
+9            if(st.count(nums[i])) continue;
+10            st.insert(nums[i]);
+11
+12            int prev=-1;
+13            int gap=-1;
+14            int cnt=0;
+15            bool check=true;
+16            for(int j=0;j<n;j++){
+17                if(nums[i]==nums[j]){
+18                    cnt++;
+19                    if(prev==-1){
+20                        prev=j;
+21                    }else if(gap==-1){
+22                        gap=j-prev;
+23                        prev=j;
+24                    }else{
+25                        if(j-prev!=gap){
+26                            check=false;
+27                            break;
+28                        }
+29                        prev=j;
+30                    }
+31                }
+32            }
+33            if(check && cnt==3) ans++;
+34        }
+35        return ans;
+36    }
+37};
