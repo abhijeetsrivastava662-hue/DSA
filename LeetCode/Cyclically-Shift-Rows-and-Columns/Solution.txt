@@ -1,0 +1,23 @@
+1class Solution {
+2public:
+3    vector<vector<int>> cyclicShift(int n, vector<vector<int>>& grid, vector<int>& rowShift, vector<int>& colShift) {
+4       
+5        vector<vector<int>> temp(n,vector<int>(n));
+6
+7        for(int i=0;i<n;i++){
+8            int k=rowShift[i]%n;
+9            for(int j=0;j<n;j++){
+10                temp[i][(j-k+n)%n]=grid[i][j];
+11            }
+12        }
+13        vector<vector<int>> ans(n,vector<int>(n));
+14
+15        for(int j=0;j<n;j++){
+16            int k=colShift[j]%n;
+17            for(int i=0;i<n;i++){
+18                ans[(i-k+n)%n][j]=temp[i][j];
+19            }
+20        }
+21        return ans;
+22    }
+23};
