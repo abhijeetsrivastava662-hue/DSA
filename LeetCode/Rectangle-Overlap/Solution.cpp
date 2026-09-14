@@ -1,1 +1,8 @@
-if (x1 >= x4 || y1 >= y4 || ...) {}
+1class Solution {
+2public:
+3    bool isRectangleOverlap(vector<int>& rec1, vector<int>& rec2) {
+4        if(rec1[2]<=rec2[0] || rec2[2]<=rec1[0] || rec1[1]>=rec2[3] || rec1[3]<=rec2[1]) return false;
+5        else 
+6        return true;
+7    }
+8};
