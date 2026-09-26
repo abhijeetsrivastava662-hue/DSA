@@ -1,0 +1,14 @@
+1class Solution {
+2public:
+3    bool canTransform(vector<int>& source, vector<int>& target) {
+4        long long sumsour=0;
+5        for(int x:source){
+6            sumsour+=x;
+7        }
+8        long long sumtar=0;
+9        for(int x:target){
+10            sumtar+=x;
+11        }
+12        return sumsour==sumtar;
+13    }
+14};
