@@ -10,18 +10,19 @@
 10            int steps=q.front().second;
 11            q.pop();
 12            if(word==endWord) return steps;
-13            for(int i=0;i<word.size();i++){
-14                int original=word[i];
-15                for(char ch='a';ch<='z';ch++){
-16                    word[i]=ch;
-17                    if(set.find(word)!=set.end()){
-18                        q.push({word,steps+1});
-19                        set.erase(word);
-20                    }
-21                }
-22                word[i]=original;
-23            }
-24    }
-25    return 0;
-26    }
-27};
+13            // TC -> N*word.length*26
+14            for(int i=0;i<word.size();i++){
+15                int original=word[i];
+16                for(char ch='a';ch<='z';ch++){
+17                    word[i]=ch;
+18                    if(set.find(word)!=set.end()){
+19                        q.push({word,steps+1});
+20                        set.erase(word);
+21                    }
+22                }
+23                word[i]=original;
+24            }
+25    }
+26    return 0;
+27    }
+28};
