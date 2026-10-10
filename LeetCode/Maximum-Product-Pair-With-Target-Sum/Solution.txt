@@ -1,0 +1,21 @@
+1class Solution {
+2public:
+3    vector<int> maxProductPair(vector<int>& nums, int target) {
+4        int maxi=INT_MIN;
+5        vector<int> ans={-1,-1};
+6        for(int i=0;i<nums.size();i++){
+7            for(int j=0;j<nums.size();j++){
+8                if(i==j) continue;
+9                if(nums[i]+nums[j]==target && nums[i]>nums[j]){
+10                    int prod=nums[i]*nums[j];
+11                    if(prod>maxi){
+12                    maxi=prod;
+13                    ans={i,j};
+14                }
+15                }
+16                
+17            }
+18        }
+19        return ans;
+20    }
+21};
